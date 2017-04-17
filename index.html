@@ -6,6 +6,111 @@
     <title>jude test</title>
 </head>
 <body>
-<H1>Testing</H1>
+<H1>Learning client side</H1>
 </body>
+<p>
+    I'm a server side c# developer. I'm trying to learn client side
+    using Angular2 and related technologies. 
+
+    Angualar2 is a technology that will allow me to update client side without reloading pages.
+    When I read books and articles about Angular2 they mostly seem to be written for the perspective of a client side developer.
+    They seem to require me to download lots of unfamiliar code and applications and then my web page magically updates.
+    Then, when I change something, it stops working and I don't know what I did wrong.
+    This blog is my journey through picking apart the pieces that make up the Angular2 applications
+    and understanding and documenting what each one does.
+    I'm going to try and build an Angular2 based application from the bottom up
+
+    <h3>Typescript</h3>
+
+    Typescript is a language that allows me to create JavaScript code in a type safe way using OOP style classes. 
+    The Typescript transpiler (similar to a compiler) then converts this into nasty old JavaScript without me having to get my hands dirty.
+    I don't have to use Transcript to get Angular2 working but it should make my code more reliable.
+    Typescript was developed by Microsoft C# people and it is Open Source and on GitHub, Angular2 is written using Typescript.
+    It does the job and looks like will be around for a while so I think it is worth using.
+
+    This is the download page for TypeScript. https://www.typescriptlang.org/index.html#download-link. 
+    It talks about node.js packages and npm. This was my first hurdle...
+
+    <h3>node.js and npm</h3>
+    Node.js seems to be the JavaScript equivalent of asp.net. - it generates server side JavaScript files.
+    npm is the node.js equivalent of NuGet.
+    Since Typescript is a JavaScript 'package' I need to download both node.js and npm to get TypeScript.
+    TypeScript is installed as part of some versions of Visual studio and Visual Studio Code.
+    I tried that route and found it pushed me into project templates containing unfamiliar files.
+    Since I want to understand things from the bottom up I downloaded node.js from https://nodejs.org/en/download/
+    I clicked the Current Latest Features button and downloaded and installed the Windows msi file.
+    This installed both node.js and npm package manager.I install latest npn using. 
+    This link https://docs.npmjs.com/getting-started/installing-node tells me that npm gets updated more frequently than nond.js
+    and recommends that i run 'npm install npm@latest -g' and then check the version with npm -v. (Check node version with 'node -v')
+    My versions are:
+    npm : 4.5.0
+    node : 7.9.0
+    Now I opened up Command Prompt and pasted in 'npm install -g typescript' from the TypeScript download link.
+
+    <h3>Did Typescript install OK?</h3>
+
+    Easiest way to check is to create a simple TypeScript file and then run the Typescript transpiler.
+    Create the simple Typescript file in https://www.typescriptlang.org/docs/tutorial.html and save it as say test.ts. 
+    It has to have a ts extension
+    In Command Prompt, navigate to the folder that contains your the file and enter tsc test.ts. 
+    You should see a javascript file that tsc has created
+
+
+    <h3>Running Transcript Transpiler in Watch mode (-w option)</h3>
+    I found this worked better when I used Cmder Console window(http://cmder.net/ ) instead of Command Prompt. 
+    Try entering 'tsc test.tc -w' and then change and save test.ts. The transpiler will automatically detect changes and update the javascript test.js file
+    So I now understand how to automatically update the JavaScript file every time I modify a Transcript file.
+    I still need Angular2 to automatically update the web page though
+
+    I want to be able to automatically update all the JavaScript files in my project.
+    To do this I need to use the project (-p) option and use a tsconfg.json file. Sample ones are here. https://www.typescriptlang.org/docs/handbook/tsconfig-json.html
+
+    I modified one of the sample ones to have strict compilation options and to output into separate
+    JavaScript files with no map file. This is what I came up with
+    <code>
+        {
+        "compilerOptions": {
+        "module": "commonjs",
+        "target": "es5",
+        "noImplicitAny": true,
+        "removeComments": true,
+        "preserveConstEnums": true,
+        "alwaysStrict" : true,
+        "diagnostics" : true,
+        "experimentalDecorators" : true,
+        "forceConsistentCasingInFileNames" : true,
+        "noUnusedLocals" :true,
+        "noUnusedParameters" :true,
+        "strictNullChecks" :true,
+        "watch" : true,
+        "pretty" : true,
+        "listEmittedFiles" : true
+        // "outFile": "/output/tsc.js",
+        // "sourceMap": true
+        },
+        "include": [
+        "app/**/*"
+        ],
+        "exclude": [
+        "node_modules",
+        "**/*.spec.ts"
+        ]
+        }
+    </code>
+    I created a second Typescript file. I tested this with the following command
+    tsc -p tsconfig.json file path eg 'tsc -p c:\mydir'
+
+    full compiler options are at https://www.typescriptlang.org/docs/handbook/compiler-options.html 
+
+
+
+
+
+
+
+
+
+
+</p>
+
 </html>
