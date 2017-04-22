@@ -28,8 +28,17 @@
     Typescript was developed by Microsoft C# people and it is Open Source and on GitHub, Angular2 is written using Typescript.
     It does the job and looks like will be around for a while so I think it is worth using.
 
-    This is the download page for TypeScript. https://www.typescriptlang.org/index.html#download-link. 
+    This is the download page for TypeScript. https://www.typescriptlang.org/index.html#download-link.
     It talks about node.js packages and npm. This was my first hurdle...
+
+    <h3>Typings</h3>
+    I'm also seeing a typings.json file in some projects. Turns out that many Javascript libraries eg Jquery have
+    extended features beyond Javascript that TypeScript , beacuase these features are not n pukka JavaScrupt , cannot trnaspile.
+    To get around this these libraties often offer a TypeScript definition file that shows Transcript Compiler how to convert them.
+    The typings.json is a standard file that tells tsc where to find the TypeScript definition files.
+    We may as well included this in our folder - don't need it yet but it won't do any harm
+    To actually get the code for these I need to run commands like 'npm install @types/jasmine --save-dev'
+
 
     <h3>node.js and npm</h3>
     Node.js seems to be the JavaScript equivalent of asp.net. - it generates server side JavaScript files.
@@ -97,17 +106,68 @@
         ]
         }
     </code>
+    module option - TypeScript scopes variables, functions, classes by module - for something to be visible elsewhere it has to be exported.
+    settign module to be commonjs tells the transpiler that I want t use the node.js module loader to import/export my modules - no idea what effect this has
+
     I created a second Typescript file. I tested this with the following command
     tsc -p tsconfig.json file path eg 'tsc -p c:\mydir'
 
-    full compiler options are at https://www.typescriptlang.org/docs/handbook/compiler-options.html 
+    full compiler options are at https://www.typescriptlang.org/docs/handbook/compiler-options.html
 
 
+    <h2>Angular2</h2>
+    <h2>packages.json</h2>
+    I now need to add some Angular2 stuff. I need a packages.json file. This file contains several sections described in detail in  https://angular.io/docs/ts/latest/guide/npm-packages.html
+
+    The sections are:
+
+    <h3>name</h3>
+    The name of my application
+
+    <h3>version</h3>
+    The version of my software. I'll leave this as 1.0.0 for now
+
+    <h3>license</h3>
+    What licence I am releasing my application under. I'll leave this as MIT
+     
+    <h3>dependencies and devdependencies</h3> 
+    These are similar to my familiar C# packages.config file.
+    Splitting out the dependencies that are only needed for development and not production is useful.
+    So to not include these in production I just need to add the --production option as below  (https://angular.io/docs/ts/latest/guide/npm-packages.html)
+    npm install my-application --production
+    Seems like I can just manually remove them prior to deployment. I'm going to use the ones recommened here
+    https://angular.io/docs/js/latest/quickstart.html#!#package-json
+
+  
+
+    <h3>scripts</h3>
+    This is optional. The interesting bit is the "start" key which is used to start up our app. This is what 'npm start' actually runs.
+
+    I'm going to use the scripts section from
+    https://www.tutorialspoint.com/angular2/angular2_environment.htm
+
+    which is
+
+    "scripts": {
+    "start": "concurrent \"npm run tsc:w\" \"npm run lite\" ",
+    "tsc": "tsc",
+    "tsc:w": "tsc -w",
+    "lite": "lite-server",
+    "typings": "typings",
+    "postinstall": "typings install"
+    },
+
+    but I'm going to leave out the typings and postinstall KVPs because I don't think I need them
+    http://onehungrymind.com/build-a-simple-website-with-angular-2/
 
 
+    <h2>Angular2 Module</h2>
+    So my Angular2 app needs at least one module the root module and that module has to contain at least one component.
+    Plus I need a main.ts which is the entry point for the angular2 stuff
 
+    Finally I need an html file contining a tag that will be replaced b y angular generated stuff at runtime
 
-
+    
 
 
 
