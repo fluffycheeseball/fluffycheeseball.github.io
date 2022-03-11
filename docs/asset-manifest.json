@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/static/css/main.5b0cff14.chunk.css",
+    "main.js": "/static/js/main.ec41f97e.chunk.js",
+    "main.js.map": "/static/js/main.ec41f97e.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.6c8890a7.js",
+    "runtime-main.js.map": "/static/js/runtime-main.6c8890a7.js.map",
+    "static/js/2.7db020fd.chunk.js": "/static/js/2.7db020fd.chunk.js",
+    "static/js/2.7db020fd.chunk.js.map": "/static/js/2.7db020fd.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.8f1ec5557a5321a5d3945e5ceaf92b66.js": "/precache-manifest.8f1ec5557a5321a5d3945e5ceaf92b66.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/main.5b0cff14.chunk.css.map": "/static/css/main.5b0cff14.chunk.css.map",
+    "static/js/2.7db020fd.chunk.js.LICENSE.txt": "/static/js/2.7db020fd.chunk.js.LICENSE.txt",
+    "static/media/index.css": "/static/media/Early-GameBoy.3ada9815.ttf"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.6c8890a7.js",
+    "static/js/2.7db020fd.chunk.js",
+    "static/css/main.5b0cff14.chunk.css",
+    "static/js/main.ec41f97e.chunk.js"
+  ]
+}
